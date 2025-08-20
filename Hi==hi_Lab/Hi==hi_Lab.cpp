@@ -1,11 +1,18 @@
 #include <iostream>
+#include <cassert>
+#include <string>
 using namespace std;
 
-int main() {
+string str1, str2;
 
+string toLower(string str) {
 
-    
-    return 0;
+    for(char &a: str) {
+
+        a = tolower(a);
+    }
+
+    return str;
 }
 
 bool strcmp_case_insensitive(string a, string b) {
@@ -18,12 +25,36 @@ bool strcmp_case_insensitive(string a, string b) {
     return false;
 }
 
-string toLower(string str) {
 
-    for(char a: str) {
 
-        a = tolower(a);
+int main() {
+
+    cout << "Enter first string: " << endl;
+    cin >> str1;
+    cout << "Enter second string: " << endl;
+    cin >> str2;
+
+    if(str1.empty() || str2.empty()) {
+
+        cout << " One or both strings are empty" << endl;
+    
+        return 1;
     }
 
-    return str;
+    
+    
+    if(strcmp_case_insensitive(str1, str2)) {
+
+        cout << "The strings are equal (case insensitive)." << endl;
+    }
+    else {
+
+        cout << "The strings are not equal." << endl;
+    }
+
+    return 0;
 }
+
+
+
+
